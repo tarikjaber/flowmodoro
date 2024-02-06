@@ -36,7 +36,7 @@
   function formatTime(time: number) {
     let hours = Math.floor(time / 3600)
     let hourString = String(hours)
-    let minutes = Math.floor(time / 60)
+    let minutes = Math.floor(time / 60) - hours * 60
     let minuteString = String(minutes).padStart(2, '0')
     let seconds = time % 60
     let secondString = String(seconds).padStart(2, '0')
