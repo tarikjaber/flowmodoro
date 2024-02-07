@@ -59,11 +59,14 @@
   }
 </script>
 
+
+<svelte:head>
+  <title>{working ? "Work" : "Break"}</title>
+</svelte:head>
 <Counter working={working}/>
 <h1>
   {formatTime(time)}
 </h1>
-
 {#if working}
   <button on:click={takeBreak}>
     Break
