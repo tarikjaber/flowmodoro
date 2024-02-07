@@ -4,31 +4,41 @@
   let working = true
 
   let time: number = 0; 
-  let permission = Notification.requestPermission()
+  let startTime = new Date();
+  let countDownTime: number;
+  Notification.requestPermission()
   
   function breakOver() {
     new Notification("Break is over!")
   }
   
   function updateTime() {
+    let currentTime = new Date();
     if (working) {
-      time += 1;
+      let elapsedSeconds = Math.floor((+currentTime - +startTime) / 1000);
+      time = elapsedSeconds;
     } else {
-      time -= 1;
-      if (time === 0) {
+      let endTime = Math.floor(+startTime / 1000) + countDownTime;
+      let timeLeft = endTime - Math.floor(+currentTime / 1000);
+
+      time = timeLeft;
+      if (timeLeft <= 0) {
         breakOver()
+        startTime = new Date();
         working = true
       }
     }
   }
   
-  setInterval(updateTime, 1000)
+  setInterval(updateTime, 1000);
 
   function takeBreak() {
     working = false
-    time = Math.floor(time / 5)
+    countDownTime = Math.floor(time / 5)
+    time = countDownTime;
+    startTime = new Date()
     // In case there is no time for a break
-    if (time === 0) {
+    if (countDownTime === 0) {
       working = true
     }
   }
@@ -53,7 +63,6 @@
 <h1>
   {formatTime(time)}
 </h1>
-
 
 {#if working}
   <button on:click={takeBreak}>
