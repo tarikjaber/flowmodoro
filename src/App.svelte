@@ -62,7 +62,7 @@
 
 <svelte:head>
   <title>{formatTime(time)}</title>
-  <link rel="icon" href={working ? "/blue.png": "/green.webp"} />
+  <link rel="icon" href={working ? "/blue.png": "/green.png"} />
 </svelte:head>
 <Counter working={working}/>
 <h1>
