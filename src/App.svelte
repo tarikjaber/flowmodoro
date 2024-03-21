@@ -62,7 +62,7 @@
 
 <svelte:head>
   <title>{formatTime(time)}</title>
-  <link rel="icon" href={working ? "/blue.png": "/green.png"} />
+  <link rel="icon" href={working ? "/green.svg": "/blue.svg"} />
 </svelte:head>
 <Counter working={working}/>
 <h1>
@@ -76,7 +76,17 @@
 
 <style>
   button {
-    background-color: #FF8911;
+    background-color: #387157;
+    transition: 0.2s all;
+  }
+  
+  button:hover {
+    background-color: #2c5843;
+  }
+  
+  button:active {
+    background-color: #1f3f30;
+    transform: scale(0.98);
   }
 </style>
 
