@@ -3,7 +3,7 @@
   let count: number = 0
   setInterval(() => {
     count += 1;
-  }, 1000)
+  }, 500)
 </script>
 
 <h1>

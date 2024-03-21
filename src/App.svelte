@@ -78,6 +78,7 @@
   button {
     background-color: #387157;
     transition: 0.2s all;
+    margin-top: 0.8em;
   }
   
   button:hover {
